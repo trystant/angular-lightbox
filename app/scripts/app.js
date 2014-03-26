@@ -4,15 +4,18 @@ angular.module('angularLightboxApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'angularLightboxApp.directives'
 ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
+      .when('/lightbox', {
+        templateUrl: 'views/lightbox.html',
         controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
   });
+
+angular.module('angularLightboxApp.directives', []);
