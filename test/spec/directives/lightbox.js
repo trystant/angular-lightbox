@@ -17,7 +17,6 @@ describe('Directive: lightbox', function () {
   it('should make hidden element visible', inject(function ($compile) {
     //element = angular.element('<lightbox images="album"></lightbox>');
     element = $compile(template)(scope);
-    console.log(element);
-    expect(element.find('a').length).toEqual(5);
+    expect(element.find('a').length).toEqual(1);
   }));
 });
