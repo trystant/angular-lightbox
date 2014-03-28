@@ -20,7 +20,8 @@ module.exports = function(config) {
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
-      'test/spec/**/*.js'
+      'test/spec/**/*.js',
+      'app/views/ng-templates/*.html'
     ],
 
     // list of files / patterns to exclude
@@ -36,6 +37,11 @@ module.exports = function(config) {
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
+
+    // generate js files from html templates to expose them during testing.
+    preprocessors: {
+      'app/views/ng-templates/*.html': 'html2js'
+    },
 
 
     // Start these browsers, currently available:

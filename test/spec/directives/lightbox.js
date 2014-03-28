@@ -3,18 +3,21 @@
 describe('Directive: lightbox', function () {
 
   // load the directive's module
-  beforeEach(module('angularLightboxApp'));
+  beforeEach(module('angularLightboxApp','app/views/ng-templates/lightbox.html'));
 
   var element,
-    scope;
+    scope, template;
 
-  beforeEach(inject(function ($rootScope) {
+  beforeEach(inject(function ($rootScope, $templateCache) {
+    template = $templateCache.get('app/views/ng-templates/lightbox.html');
+    $templateCache.put('app/views/ng-templates/lightbox.html',template);
     scope = $rootScope.$new();
   }));
 
   it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<lightbox></lightbox>');
-    element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the lightbox directive');
+    //element = angular.element('<lightbox images="album"></lightbox>');
+    element = $compile(template)(scope);
+    console.log(element);
+    expect(element.find('a').length).toEqual(5);
   }));
 });

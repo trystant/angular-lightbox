@@ -3,10 +3,10 @@
 angular.module('angularLightboxApp')
   .directive('lightbox', function () {
     return {
-      template: '<div></div>',
+      templateUrl: '/app/views/ng-templates/lightbox.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the lightbox directive');
+      scope: {
+        images: '='
       }
     };
   });
